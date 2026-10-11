@@ -2,7 +2,7 @@
 
 一个可离线运行的本科机器学习课程项目。用户输入台词、关键词或场景描述，系统从**有权处理的本地素材索引**中检索片段，并返回影片名称、匹配台词、起止时间、所在分钟、相似度、分项得分、匹配原因和关键帧。
 
-项目不含真实影视文件、下载器、抓取器或大型模型。附带的 12 条片段、8 条查询和 6 张 SVG 关键帧均为自建模拟数据，不对应真实作品。
+项目不含真实影视文件、下载器、抓取器或大型模型。除原有的 12 条自建模拟片段外，现已加入《Sintel》和《Tears of Steel》共 22 条 CC BY 3.0 真实英文字幕记录；真实库与模拟库可在侧栏切换。许可与时间来源见 `data/OPEN_MOVIES_NOTICE.md`。
 
 公网演示：https://film-clip-search-zeyanx.streamlit.app/
 
@@ -21,6 +21,7 @@
 - Streamlit 五个标签页：搜索、素材导入与建库、模型设置、实验评测、数据与版权；
 - Recall@1/5、MRR@5、nDCG@5、延迟、索引时间和字段消融评测；
 - 自动测试与可解释的真实性能边界。
+- 开放许可真实字幕库：两部 Blender Foundation 开放电影、22 条字幕、原片时间戳与署名追溯；不把它冒充已标注的真实检索实验。
 
 ## 快速运行
 
@@ -112,7 +113,7 @@ python .\tools\build_index.py --dataset D:\authorized\new.jsonl --existing-index
 python .\tools\evaluate_demo.py
 ```
 
-本次实际核验为 24/24 个单元测试通过、源码编译通过、Streamlit 健康检查 HTTP 200。模拟集指标和未运行模型状态见 `data/experiment_results.csv` 与交付目录中的 `experiment_report.md`。模拟集的满分只证明测试样例可被基线找回，不代表真实影视泛化能力。
+加入开放电影字幕库后需重新执行测试；模拟集指标和未运行模型状态见 `data/experiment_results.csv` 与交付目录中的 `experiment_report.md`。模拟集的满分只证明测试样例可被基线找回，不代表真实影视泛化能力；开放电影字幕库没有相关性标注，因此暂不报告真实检索指标。
 
 ## 目录
 
@@ -120,7 +121,7 @@ python .\tools\evaluate_demo.py
 film_clip_semantic_search/
 ├─ app.py
 ├─ src/film_search/            检索、数据、字幕、媒体、索引、指标与可选模型
-├─ data/                       模拟片段、模拟查询和数据说明
+├─ data/                       模拟数据、开放电影真实字幕库和数据说明
 ├─ assets/keyframes/           自建模拟 SVG
 ├─ tools/                      字幕/视频导入、索引、评测
 ├─ tests/                      自动测试
@@ -129,7 +130,7 @@ film_clip_semantic_search/
 
 ## 当前边界
 
-- 没有用户提供的真实授权影视媒体，因此没有真实媒体性能数据；
+- 已接入两部开放电影的真实字幕，但没有提交影片本体，也没有真实相关性标注，因此没有真实媒体性能数据；
 - 没有配置本地句向量或 CLIP 模型，因此 B/C 在本次实验中是 `not_run`；
 - 预训练模型不是本项目训练成果；
 - 获得合法媒体后必须重新标注并运行同一评测协议，不能沿用模拟指标。
