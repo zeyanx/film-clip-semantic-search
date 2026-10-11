@@ -27,7 +27,12 @@ from film_search.timecode import format_range
 
 
 DEFAULT_DATASET = PROJECT_ROOT / "data" / "demo_segments.jsonl"
+OPEN_MOVIES_DATASET = PROJECT_ROOT / "data" / "open_movies_segments.jsonl"
 EXPERIMENT_CSV = PROJECT_ROOT / "data" / "experiment_results.csv"
+TRUSTED_REMOTE_KEYFRAMES = {
+    "https://raw.githubusercontent.com/ActuallyAnson/moment/main/app/src/assets/posters/sintel.jpg",
+    "https://raw.githubusercontent.com/ActuallyAnson/moment/main/app/src/assets/posters/tos.jpg",
+}
 MEDIA_TYPE_LABELS = {
     "全部类型": "",
     "动漫": "anime",
@@ -75,6 +80,13 @@ def resolve_asset(raw_path: str) -> Path | None:
     return resolved if resolved.is_file() else None
 
 
+def resolve_keyframe(raw_path: str) -> str | Path | None:
+    """Allow only reviewed remote CC-BY frames; uploaded URLs stay blocked."""
+    if raw_path in TRUSTED_REMOTE_KEYFRAMES:
+        return raw_path
+    return resolve_asset(raw_path)
+
+
 def build_engine(segments):
     semantic, visual, messages = optional_providers()
     return SearchEngine(
@@ -83,11 +95,18 @@ def build_engine(segments):
 
 
 def load_active_segments():
+    dataset_choice = st.sidebar.radio(
+        "内置数据源",
+        ["开放许可真实字幕库", "自建模拟数据"],
+        help="真实字幕库来自两部 Blender Foundation CC BY 3.0 开放电影。",
+    )
     uploaded = st.sidebar.file_uploader(
         "导入标准 JSONL（可选）", type=["jsonl"], help="文件只在当前会话中解析。"
     )
     if uploaded is None:
-        return load_jsonl(DEFAULT_DATASET), "内置模拟数据"
+        if dataset_choice == "开放许可真实字幕库":
+            return load_jsonl(OPEN_MOVIES_DATASET), "开放许可真实字幕库"
+        return load_jsonl(DEFAULT_DATASET), "自建模拟数据"
     text = uploaded.getvalue().decode("utf-8-sig")
     return load_jsonl_text(text, source_name=uploaded.name), uploaded.name
 
@@ -97,7 +116,7 @@ def render_result(result) -> None:
     with st.container(border=True):
         left, right = st.columns([2, 3])
         with left:
-            keyframe = resolve_asset(segment.keyframe_path)
+            keyframe = resolve_keyframe(segment.keyframe_path)
             if keyframe:
                 st.image(str(keyframe), width="stretch")
             else:
@@ -212,6 +231,11 @@ def main() -> None:
             f"当前数据源“{dataset_label}”含 {simulated_count} 条模拟片段，只用于功能测试，"
             "不能代表真实影视检索性能。"
         )
+    else:
+        st.success(
+            f"当前数据源“{dataset_label}”含 {len(segments)} 条真实开放许可字幕记录。"
+            "这些记录用于功能展示，尚未构成带相关性标注的真实检索实验。"
+        )
 
     search_tab, import_tab, model_tab, experiment_tab, rights_tab = st.tabs(
         ["搜索", "素材导入与建库", "模型设置", "实验评测", "数据与版权"]
@@ -279,7 +303,17 @@ def main() -> None:
             "- 每条真实记录必须保存权限状态与依据。\n"
             "- 模拟数据和真实性能结论必须分开。"
         )
+        st.markdown("### 已接入的真实开放许可库")
+        st.markdown(
+            "- **Sintel**：原片 01:45–02:30，共 11 条真实英文字幕；"
+            "[CC BY 3.0 与署名要求](https://durian.blender.org/sharing/)。\n"
+            "- **Tears of Steel**：原片 00:20–01:05，共 11 条真实英文字幕；"
+            "[CC BY 3.0 与署名要求](https://mango.blender.org/sharing/)。\n"
+            "- [字幕镜像与完整来源说明](https://github.com/ActuallyAnson/moment/blob/main/clips/NOTICE.md)。"
+        )
+        st.caption("网页不托管或下载影片本体；未人工核验的场景描述保持为空。")
 
 
 if __name__ == "__main__":
     main()
+
