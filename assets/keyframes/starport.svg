@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#07111f"/><circle cx="750" cy="190" r="125" fill="#2d7bb7"/><path d="M650 170q100-65 200 5" fill="none" stroke="#a5e0ff" stroke-width="18" opacity=".5"/>
+  <g fill="#fff"><circle cx="100" cy="120" r="3"/><circle cx="250" cy="80" r="4"/><circle cx="410" cy="150" r="2"/><circle cx="890" cy="70" r="3"/></g>
+  <path d="M150 300h420l95 80-95 70H150l-75-75z" fill="#bdc7d4" stroke="#50e3c2" stroke-width="7"/>
+  <rect x="205" y="330" width="110" height="55" fill="#ef5350"/><rect x="345" y="330" width="110" height="55" fill="#f2c14e"/>
+  <text x="40" y="65" fill="#fff" font-size="28" font-family="sans-serif">SIMULATED · 模拟关键帧</text>
+  <text x="40" y="510" fill="#fff" font-size="34" font-family="sans-serif">星港维修队 · 故障警报</text>
+</svg>
+

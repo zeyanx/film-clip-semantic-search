@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#f4e7d3"/><rect y="330" width="960" height="210" fill="#7f5539"/>
+  <circle cx="480" cy="340" r="135" fill="#30343b"/><circle cx="480" cy="340" r="105" fill="#d9822b"/>
+  <path d="M610 330h220" stroke="#30343b" stroke-width="38" stroke-linecap="round"/>
+  <path d="M420 170q25-70 50 0M500 170q25-70 50 0" fill="none" stroke="#aaa" stroke-width="12" opacity=".8"/>
+  <rect x="90" y="200" width="120" height="145" rx="12" fill="#fff" stroke="#c6a15b" stroke-width="8"/><text x="118" y="285" fill="#7f5539" font-size="34" font-family="sans-serif">盐</text>
+  <text x="40" y="65" fill="#533b2f" font-size="28" font-family="sans-serif">SIMULATED · 模拟关键帧</text>
+  <text x="40" y="510" fill="#fff" font-size="34" font-family="sans-serif">厨房冠军 · 调味时机</text>
+</svg>
+

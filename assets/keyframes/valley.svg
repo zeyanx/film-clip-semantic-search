@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <defs><linearGradient id="v" x2="0" y2="1"><stop stop-color="#f4b183"/><stop offset="1" stop-color="#7fb39b"/></linearGradient></defs>
+  <rect width="960" height="540" fill="url(#v)"/><circle cx="750" cy="120" r="65" fill="#ffe7a3"/>
+  <path d="M0 340L180 160l170 190 170-230 210 250 130-170 100 140v200H0z" fill="#355b4c"/>
+  <path d="M0 430q250-120 480 0t480 0v110H0z" fill="#84a85f"/>
+  <path d="M350 360q120 90 250 0" fill="none" stroke="#d2c2a2" stroke-width="24"/>
+  <rect x="180" y="290" width="120" height="75" rx="8" fill="#f8f0dc" transform="rotate(-8 240 327)"/>
+  <text x="40" y="65" fill="#fff" font-size="28" font-family="sans-serif">SIMULATED · 模拟关键帧</text>
+  <text x="40" y="510" fill="#fff" font-size="34" font-family="sans-serif">山谷来信 · 风与回信</text>
+</svg>
+

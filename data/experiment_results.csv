@@ -1,0 +1,5 @@
+configuration,status,scope,queries,recall_at_1,recall_at_5,mrr_at_5,ndcg_at_5,average_latency_ms,index_time_ms,reason
+tfidf_full_fields,completed,simulated_demo_only,8,1.0,1.0,1.0,1.0,0.072913,2.207,
+tfidf_dialogue_only_ablation,completed,simulated_demo_only,8,1.0,1.0,1.0,1.0,0.047875,0.3677,
+multilingual_sentence_embedding,not_run,simulated_demo_only,0,,,,,,,no local sentence model configured
+text_visual_fusion,not_run,simulated_demo_only,0,,,,,,,no local sentence model and CLIP model configured

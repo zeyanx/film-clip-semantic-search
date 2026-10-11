@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#16243f"/><stop offset="1" stop-color="#46647a"/></linearGradient></defs>
+  <rect width="960" height="540" fill="url(#sky)"/><rect y="360" width="960" height="180" fill="#222a33"/>
+  <path d="M0 420h960M0 470h960" stroke="#abb7c4" stroke-width="5" opacity=".5"/>
+  <rect x="650" y="255" width="230" height="110" rx="12" fill="#1d2a33" stroke="#f2c14e" stroke-width="5"/>
+  <circle cx="705" cy="372" r="28" fill="#111"/><circle cx="825" cy="372" r="28" fill="#111"/>
+  <path d="M190 310v105M145 360h90" stroke="#f4f0e6" stroke-width="14" stroke-linecap="round"/>
+  <path d="M300 325v90M260 370h80" stroke="#d9b7a0" stroke-width="14" stroke-linecap="round"/>
+  <g stroke="#b9d9ee" opacity=".7"><path d="M80 40l-35 85M180 20l-35 85M300 50l-35 85M430 15l-35 85M560 55l-35 85M700 25l-35 85M840 50l-35 85"/></g>
+  <text x="40" y="65" fill="#fff" font-size="28" font-family="sans-serif">SIMULATED · 模拟关键帧</text>
+  <text x="40" y="510" fill="#fff" font-size="34" font-family="sans-serif">雨夜车站 · 告别</text>
+</svg>
+

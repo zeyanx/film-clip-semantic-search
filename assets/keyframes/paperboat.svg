@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <defs><linearGradient id="p" x2="0" y2="1"><stop stop-color="#9ad5ed"/><stop offset="1" stop-color="#2d8fbd"/></linearGradient></defs>
+  <rect width="960" height="540" fill="url(#p)"/><circle cx="790" cy="95" r="55" fill="#fff1a8"/>
+  <path d="M0 365q140-55 280 0t280 0 280 0 120 0v175H0z" fill="#287eb1"/>
+  <path d="M340 325l135 90 145-90-70 135H410z" fill="#fff" stroke="#d8e1e8" stroke-width="5"/>
+  <path d="M480 150v175M480 150l130 120H480z" fill="#f7f7f7" stroke="#d8e1e8" stroke-width="5"/>
+  <text x="40" y="65" fill="#17324b" font-size="28" font-family="sans-serif">SIMULATED · 模拟关键帧</text>
+  <text x="40" y="510" fill="#fff" font-size="34" font-family="sans-serif">纸船 · 河流与大海</text>
+</svg>
+

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#1b1524"/><rect x="80" y="120" width="280" height="340" fill="#372c45"/><rect x="600" y="120" width="280" height="340" fill="#372c45"/>
+  <g stroke="#c89b5b" stroke-width="9"><path d="M100 190h240M100 270h240M100 350h240M620 190h240M620 270h240M620 350h240"/></g>
+  <circle cx="480" cy="255" r="120" fill="#efe2c2" stroke="#c89b5b" stroke-width="12"/><path d="M480 255l-15-75M480 255l65 35" stroke="#28212f" stroke-width="12" stroke-linecap="round"/>
+  <path d="M470 375v95M410 470h140" stroke="#c89b5b" stroke-width="18"/>
+  <text x="40" y="65" fill="#fff" font-size="28" font-family="sans-serif">SIMULATED · 模拟关键帧</text>
+  <text x="40" y="510" fill="#fff" font-size="34" font-family="sans-serif">图书馆第七码 · 钟声线索</text>
+</svg>
+
