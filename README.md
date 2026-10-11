@@ -4,6 +4,10 @@
 
 项目不含真实影视文件、下载器、抓取器或大型模型。附带的 12 条片段、8 条查询和 6 张 SVG 关键帧均为自建模拟数据，不对应真实作品。
 
+公网演示：https://film-clip-search-zeyanx.streamlit.app/
+
+源码仓库：https://github.com/zeyanx/film-clip-semantic-search
+
 ## 已实现
 
 - A：离线字符/词 TF-IDF + 余弦相似度基线；
@@ -129,3 +133,4 @@ film_clip_semantic_search/
 - 没有配置本地句向量或 CLIP 模型，因此 B/C 在本次实验中是 `not_run`；
 - 预训练模型不是本项目训练成果；
 - 获得合法媒体后必须重新标注并运行同一评测协议，不能沿用模拟指标。
+
