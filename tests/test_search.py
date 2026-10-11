@@ -17,6 +17,7 @@ from film_search.timecode import format_range, format_timecode
 
 
 DEMO_DATASET = PROJECT_ROOT / "data" / "demo_segments.jsonl"
+OPEN_MOVIES_DATASET = PROJECT_ROOT / "data" / "open_movies_segments.jsonl"
 
 
 class LoaderTests(unittest.TestCase):
@@ -37,6 +38,20 @@ class LoaderTests(unittest.TestCase):
     def test_duplicate_segment_id_is_rejected_by_contract(self) -> None:
         segments = load_jsonl(DEMO_DATASET)
         self.assertEqual(len(segments), len({item.segment_id for item in segments}))
+
+    def test_open_movie_dataset_is_real_and_licensed(self) -> None:
+        segments = load_jsonl(OPEN_MOVIES_DATASET)
+        self.assertEqual(22, len(segments))
+        self.assertTrue(all(not item.is_simulated for item in segments))
+        self.assertTrue(all(item.rights_status == "permissive_license" for item in segments))
+        self.assertEqual({"sintel_open_excerpt", "tos_open_excerpt"}, {item.media_id for item in segments})
+        self.assertTrue(all("CC BY 3.0" in item.license_source for item in segments))
+        self.assertEqual(107.25, segments[0].start_seconds)
+
+    def test_open_movie_dialogue_search(self) -> None:
+        engine = SearchEngine(load_jsonl(OPEN_MOVIES_DATASET))
+        self.assertEqual("sintel_open_010", engine.search("a dragon", top_k=1)[0].segment.segment_id)
+        self.assertEqual("tos_open_008", engine.search("giant robotic claws", top_k=1)[0].segment.segment_id)
 
 
 class SearchTests(unittest.TestCase):
@@ -85,4 +100,5 @@ class FormattingTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
 
