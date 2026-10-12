@@ -113,7 +113,7 @@ python .\tools\build_index.py --dataset D:\authorized\new.jsonl --existing-index
 python .\tools\evaluate_demo.py
 ```
 
-加入开放电影字幕库后需重新执行测试；模拟集指标和未运行模型状态见 `data/experiment_results.csv` 与交付目录中的 `experiment_report.md`。模拟集的满分只证明测试样例可被基线找回，不代表真实影视泛化能力；开放电影字幕库没有相关性标注，因此暂不报告真实检索指标。
+加入开放电影字幕库后实际核验为 26/26 个单元测试通过、源码编译通过，公网 Streamlit 页面成功完成真实字幕检索。模拟集指标和未运行模型状态见 `data/experiment_results.csv` 与交付目录中的 `experiment_report.md`。模拟集的满分只证明测试样例可被基线找回，不代表真实影视泛化能力；开放电影字幕库没有相关性标注，因此暂不报告真实检索指标。
 
 ## 目录
 
